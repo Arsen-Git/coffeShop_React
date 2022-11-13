@@ -1,15 +1,22 @@
 import "./Footer.scss";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <footer>
       <ul className="footer__menu">
-        <li className="menu__item">
-          <img src="./img/beans-black.svg" alt="beans" />
-          Coffee house
-        </li>
-        <li className="menu__item">Our coffee</li>
-        <li className="menu__item">For your pleasure</li>
+        <Link to={"/"}>
+          <li className="menu__item">
+            <img src="./img/beans-black.svg" alt="beans" />
+            Coffee house
+          </li>
+        </Link>
+        <Link to={"/market"}>
+          <li className="menu__item">Our coffee</li>
+        </Link>
+        <Link to={"/pleasure"}>
+          <li className="menu__item">For your pleasure</li>
+        </Link>
       </ul>
       <div className="divider">
         <div className="divider__left"></div>

@@ -1,6 +1,8 @@
 .container {
+  margin: 0 auto;
+  max-width: 800px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 70px;
+  column-gap: 70px;
+  row-gap: 60px;
 }
