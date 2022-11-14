@@ -14,9 +14,6 @@ export default function Footer() {
         <Link to={"/market"}>
           <li className="menu__item">Our coffee</li>
         </Link>
-        <Link to={"/pleasure"}>
-          <li className="menu__item">For your pleasure</li>
-        </Link>
       </ul>
       <div className="divider">
         <div className="divider__left"></div>

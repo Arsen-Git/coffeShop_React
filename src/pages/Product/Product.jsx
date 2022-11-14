@@ -1,31 +1,20 @@
 import SmallHeader from "../../components/SmallHeader/SmallHeader";
 import Footer from "../../components/Footer/Footer";
-import CardList from "../../components/CardList/CardList";
-import "./Market.scss";
-import React from "react";
+import "./Product.scss";
 
-export default function Market({ items, onSelectProduct }) {
-  const [search, setSearch] = React.useState("");
-  const [filter, setFilter] = React.useState("");
-
-  const onChangeInput = (e) => {
-    setSearch(e.target.value);
-  };
-  const onSelectFilter = (e) => {
-    setFilter(e.target.getAttribute("id"));
-  };
+export default function Product({ product }) {
   return (
     <>
-      <SmallHeader title={"Our Coffe"} />
-      <section className="aboutBeans">
+      <SmallHeader title={"Our coffee"} />
+      <section className="product">
         <img
+          width={392}
           height={355}
-          width={272}
-          src="./img/girl-with-coffe.jpg"
-          alt="girlWithCoffe"
+          src="./img/product-coffe.jpg"
+          alt="product"
         />
-        <div className="aboutBeans__content">
-          <h3 className="aboutBeans__title">About our beans</h3>
+        <div className="product__about">
+          <h3 className="product__title">About it</h3>
           <div className="divider">
             <div className="divider__left"></div>
             <svg
@@ -90,56 +79,24 @@ export default function Market({ items, onSelectProduct }) {
             </svg>
             <div className="divider__right"></div>
           </div>
-          <p className="aboutBeans__text">
-            Extremity sweetness difficult behaviour he of. On disposal of as
-            landlord horrible. <br />
-            <br /> Afraid at highly months do things on at. Situation recommend
-            objection do intention so questions.
-            <br /> As greatly removed calling pleased improve an. Last ask him
-            cold feel
-            <br /> met spot shy want. Children me laughing we prospect answered
-            followed. At it went
-            <br />
-            is song that held help face.
-          </p>
-        </div>
-      </section>
-      <div className="underline"></div>
-      <section className="manage">
-        <div className="manage__section">
-          <p>Looking for</p>
-          <input
-            onChange={onChangeInput}
-            type="text"
-            value={search}
-            placeholder="start typing here..."
-          />
-        </div>
-        <div className="manage__section">
-          <p>Or filter</p>
-          <div className="filterBtns">
-            <button onClick={onSelectFilter} id={"Brazil"}>
-              Brazil
-            </button>
-            <button onClick={onSelectFilter} id={"Kenya"}>
-              Kenya
-            </button>
-            <button onClick={onSelectFilter} id={"Columbia"}>
-              Columbia
-            </button>
+          <div className="product__info">
+            <p className="product__text">
+              <b>Country:&nbsp;</b>{" "}
+              {product.country ? product.country : "East America"}
+            </p>
+            <p className="product__text">
+              <b>Description:</b> Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+            </p>
+            <p className="product__text">
+              Price:&nbsp; <b style={{ fontSize: "20px" }}>{product.price}$</b>
+            </p>
           </div>
         </div>
       </section>
-      <CardList
-        items={items
-          .filter((item) =>
-            item.country.toLowerCase().includes(filter.toLowerCase())
-          )
-          .filter((item) =>
-            item.title.toLowerCase().includes(search.toLowerCase())
-          )}
-        onSelectProduct={onSelectProduct}
-      />
       <Footer />
     </>
   );

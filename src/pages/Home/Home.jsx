@@ -2,9 +2,8 @@ import Header from "../../components/Header/Header";
 import CardList from "../../components/CardList/CardList";
 import Footer from "../../components/Footer/Footer";
 import "./Home.scss";
-import { ROUTS } from "../../API";
 
-export default function Home() {
+export default function Home({ items, onSelectProduct }) {
   return (
     <>
       <Header />
@@ -91,7 +90,7 @@ export default function Home() {
       </section>
       <section className="bestsellers">
         <h2 className="bestsellers__title">Our best</h2>
-        <CardList link={ROUTS.bestsellers} />
+        <CardList items={items} onSelectProduct={onSelectProduct} />
       </section>
       <Footer />
     </>

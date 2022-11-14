@@ -1,14 +1,8 @@
 import "./CardList.scss";
 import Card from "../Card/Card";
 import React from "react";
-import axios from "axios";
 
-export default function CardList(props) {
-  const [items, setItems] = React.useState([]);
-
-  React.useEffect(() => {
-    axios.get(props.link).then((res) => setItems(res.data));
-  }, []);
+export default function CardList({ items, onSelectProduct }) {
   return (
     <ul className="container">
       {items.map((item) => (
@@ -18,6 +12,7 @@ export default function CardList(props) {
           imgUrl={item.imgUrl}
           price={item.price}
           country={item.country}
+          onSelectProduct={onSelectProduct}
         />
       ))}
     </ul>
